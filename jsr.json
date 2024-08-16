@@ -1,9 +1,14 @@
 {
+	"$schema": "https://jsr.io/schema/config-file.v1.json",
 	"name": "@hk/github-graphql",
 	"version": "0.1.0",
 	"exports": {
 		".": "./index.ts",
 		"./gql": "./src/generated/gql/index.ts",
 		"./req": "./src/generated/req.ts"
+	},
+	"publish": {
+		"include": ["src", "index.ts"],
+		"exclude": ["!src/**"]
 	}
 }

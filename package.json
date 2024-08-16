@@ -36,5 +36,9 @@
 		"build": "bun --bun run codegen",
 		"test": "bun test --coverage",
 		"format": "prettier --write \"**/*.{ts,tsx,md,json}\""
-	}
+	},
+	"files": [
+		"./src",
+		"./index.ts"
+	]
 }
