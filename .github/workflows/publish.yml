@@ -3,6 +3,8 @@ on:
   push:
     tags:
       - "v*"
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -27,4 +29,4 @@ jobs:
           bun run build
           bun run test
       - name: Publish package
-        run: npx jsr publish --allow-slow-types
+        run: bunx jsr publish --allow-slow-types
