@@ -8,7 +8,7 @@
 		"./req": "./src/generated/req.ts"
 	},
 	"publish": {
-		"include": ["src", "index.ts"],
+		"include": ["src", "index.ts", "README.md"],
 		"exclude": ["!src/**"]
 	}
 }

@@ -1,7 +1,7 @@
 {
 	"name": "github-graphql",
 	"type": "module",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"exports": {
 		".": "./index.ts",
 		"./gql": "./src/generated/gql/index.ts",
@@ -45,6 +45,7 @@
 	},
 	"files": [
 		"./src",
-		"./index.ts"
+		"./index.ts",
+		"README.md"
 	]
 }
