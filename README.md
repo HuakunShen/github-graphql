@@ -122,6 +122,9 @@ const stargazerCount = result.data.repository?.stargazerCount
 
 ## Development
 
+This project is built with [Bun](https://bun.sh).
+No Node or npm or pnpm is required to develop/build this project.
+
 To build this project
 
 Add GitHub Token to `.env` file
@@ -135,3 +138,5 @@ bun install
 bun run build
 bun run test
 ```
+
+This is a pure TypeScript project, no JS code will be generated.

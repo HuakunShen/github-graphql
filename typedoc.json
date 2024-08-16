@@ -1,6 +1,10 @@
 {
 	"$schema": "https://typedoc.org/schema.json",
-	"entryPoints": ["./index.ts", "./src/generated/gql/index.ts", "./src/generated/req.ts"],
+	"entryPoints": [
+		"./index.ts",
+		"./src/generated/gql/index.ts",
+		"./src/generated/req.ts"
+	],
 	"visibilityFilters": {
 		"protected": false,
 		"private": false,
