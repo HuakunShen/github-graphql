@@ -1,16 +1,19 @@
 {
 	"name": "github-graphql",
 	"type": "module",
+	"version": "0.1.0-alpha.0",
 	"exports": {
 		".": "./index.ts",
 		"./gql": "./src/generated/gql/index.ts",
 		"./req": "./src/generated/req.ts"
 	},
+	"license": "MIT",
 	"devDependencies": {
 		"@apollo/client": "^3.11.4",
-		"@graphql-codegen/cli": "^5.0.2",
-		"@graphql-codegen/client-preset": "^4.3.3",
-		"@graphql-codegen/typescript": "^4.0.9",
+		"@graphql-codegen/cli": "5.0.2",
+		"@graphql-codegen/client-preset": "4.3.3",
+		"@graphql-codegen/introspection": "4.0.3",
+		"@graphql-codegen/typescript": "4.0.9",
 		"@graphql-codegen/typescript-graphql-request": "^6.2.0",
 		"@graphql-codegen/typescript-operations": "^4.2.3",
 		"@types/bun": "latest",
@@ -26,10 +29,10 @@
 		"@graphql-typed-document-node/core": "^3.2.0",
 		"graphql": "^16.9.0",
 		"graphql-request": "^7.1.0",
-		"graphql-tag": "^2.12.6"
+		"jiti": "^1.21.6"
 	},
 	"scripts": {
-		"codegen": "gql-gen --config codegen.ts",
+		"codegen": "graphql-codegen --config codegen.ts",
 		"build": "bun --bun run codegen",
 		"test": "bun test --coverage",
 		"format": "prettier --write \"**/*.{ts,tsx,md,json}\""

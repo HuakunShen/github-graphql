@@ -1,11 +1,16 @@
-name: CI Build & Test
+name: Publish
 on:
   push:
-  workflow_dispatch:
-  workflow_call:
+    tags:
+      - "v*"
+
 jobs:
-  build:
-    runs-on: ubuntu-20.04
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -20,3 +25,5 @@ jobs:
         run: |
           bun run build
           bun run test
+      - name: Publish package
+        run: npx jsr publish

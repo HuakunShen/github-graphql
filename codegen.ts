@@ -30,6 +30,9 @@ const config: CodegenConfig = {
 			config: {
 				rawRequest: true
 			}
+		},
+		"./github-graphql.schema.json": {
+			plugins: ["introspection"]
 		}
 	}
 }
