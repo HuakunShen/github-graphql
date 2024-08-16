@@ -2,6 +2,10 @@
 
 ![JSR Version](https://img.shields.io/jsr/v/hk/github-graphql)
 
+[![CI Build & Test](https://github.com/HuakunShen/github-graphql/actions/workflows/ci.yml/badge.svg)](https://github.com/HuakunShen/github-graphql/actions/workflows/ci.yml)
+
+
+
 This project is a codegen wrapper around GitHub's GraphQL API, with some queries I needed for my own projects.
 
 As rest API doesn't provide types, I prefer to use GraphQL for type safety and intellisense.

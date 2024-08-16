@@ -22,6 +22,9 @@ const config: CodegenConfig = {
 			preset: "client",
 			presetConfig: {
 				fragmentMasking: { unmaskFunctionName: "getFragmentData" }
+			},
+			config: {
+				useTypeImports: true // The updated setting.
 			}
 		},
 
