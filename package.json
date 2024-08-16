@@ -30,12 +30,14 @@
 		"@graphql-typed-document-node/core": "^3.2.0",
 		"graphql": "^16.9.0",
 		"graphql-request": "^7.1.0",
-		"jiti": "^1.21.6"
+		"jiti": "^1.21.6",
+		"typedoc": "^0.26.5"
 	},
 	"scripts": {
 		"codegen": "graphql-codegen --config codegen.ts",
 		"build": "bun --bun run codegen",
 		"test": "bun test --coverage",
+		"docs": "typedoc",
 		"format": "prettier --write \"**/*.{ts,tsx,md,json}\""
 	},
 	"files": [

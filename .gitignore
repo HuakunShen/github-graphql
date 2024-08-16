@@ -178,3 +178,4 @@ src/generated
 .vscode/
 .turbo/
 github-graphql.schema.json
+docs/
