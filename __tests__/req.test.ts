@@ -52,3 +52,13 @@ test("Get User Contribution By Date", async () => {
 	console.log(contributionCollection?.contributionCalendar.weeks.length)
 	expect(contributionCollection?.contributionCalendar.weeks.length).toBe(53)
 })
+
+test("Get Star History", async () => {
+	const rawData = await sdk.StarHistory({
+		owner: "CrossCopy",
+		name: "tauri-plugin-clipboard",
+		first: 100
+	})
+	const pageInfo = rawData.data.repository?.stargazers.pageInfo
+	expect(rawData.data.repository?.stargazers.edges?.length).toBe(100)
+})

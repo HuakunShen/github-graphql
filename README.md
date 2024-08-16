@@ -1,10 +1,14 @@
 # github-graphql
 
 ![JSR Version](https://img.shields.io/jsr/v/hk/github-graphql)
-
+![NPM Version](https://img.shields.io/npm/v/github-graphql)
 [![CI Build & Test](https://github.com/HuakunShen/github-graphql/actions/workflows/ci.yml/badge.svg)](https://github.com/HuakunShen/github-graphql/actions/workflows/ci.yml)
+[![Generate and Deploy Docs](https://github.com/HuakunShen/github-graphql/actions/workflows/docs.yml/badge.svg)](https://github.com/HuakunShen/github-graphql/actions/workflows/docs.yml)
 
+## Documentation:
 
+- https://huakunshen.github.io/github-graphql/
+- https://jsr.io/@hk/github-graphql/doc
 
 This project is a codegen wrapper around GitHub's GraphQL API, with some queries I needed for my own projects.
 
@@ -20,11 +24,39 @@ If the queries you need is very specific to your project, you can fork this proj
 
 Since the main purpose of this project is to get the benefits of types, I recommend using it with TypeScript and the package doesn't provide bundled JS files.
 
+This package is published to both npm and jsr. The package name is slightly different on jsr as it requires a scoped package name.
+
+```bash
+# npm
+npm install github-graphql
+pnpm install github-graphql
+
+
+# check https://jsr.io/@hk/github-graphql for more info
+# JSR
+pnpm dlx jsr add @hk/github-graphql
+npx jsr add @hk/github-graphql
+```
+
 ## Usage
 
 Sample code is the best way to learn. Look at tests in [`__tests__`](./__tests__/) folder for examples. It's quite simple.
 
 Note that to use GitHub's GraphQL API, you need to provide a token.
+
+If you install from jsr, make sure `@hk/github-graphql` is used as the package name.
+
+A star history example is provided at [`./examples/star-history`](./examples/star-history/README.md).
+
+```ts
+// If you install from npm
+import { getSdk } from "github-graphql/req"
+
+// If you install from jsr
+import { getSdk } from "@hk/github-graphql/req"
+```
+
+See [operations](./src/operations/) folder for available queries.
 
 ## Flavors
 

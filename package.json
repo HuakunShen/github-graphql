@@ -1,7 +1,7 @@
 {
 	"name": "github-graphql",
 	"type": "module",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"exports": {
 		".": "./index.ts",
 		"./gql": "./src/generated/gql/index.ts",
@@ -10,6 +10,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@apollo/client": "^3.11.4",
+		"@changesets/cli": "^2.27.7",
 		"@graphql-codegen/cli": "5.0.2",
 		"@graphql-codegen/client-preset": "4.3.3",
 		"@graphql-codegen/introspection": "4.0.3",
@@ -17,8 +18,10 @@
 		"@graphql-codegen/typescript-graphql-request": "^6.2.0",
 		"@graphql-codegen/typescript-operations": "^4.2.3",
 		"@types/bun": "latest",
+		"@types/plotly.js": "^2.33.3",
 		"graphql-codegen-typescript-common": "0.18.2",
 		"graphql-tag": "^2.12.6",
+		"plotly.js": "^2.34.0",
 		"prettier": "^3.3.3",
 		"react": "^18.3.1",
 		"typescript": "^5.5.4"

@@ -1,15 +1,11 @@
 {
-    "$schema": "https://typedoc.org/schema.json",
-    "entryPoints": [
-        "./index.ts",
-        "./src/generated/gql/index.ts",
-        "./src/generated/req.ts"
-    ],
-    "visibilityFilters": {
-        "protected": false,
-        "private": false,
-        "inherited": true,
-        "external": true
-    },
-    "out": "docs"
+	"$schema": "https://typedoc.org/schema.json",
+	"entryPoints": ["./index.ts", "./src/generated/gql/index.ts", "./src/generated/req.ts"],
+	"visibilityFilters": {
+		"protected": false,
+		"private": false,
+		"inherited": true,
+		"external": true
+	},
+	"out": "docs"
 }
