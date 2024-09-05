@@ -1,21 +1,24 @@
+import { GraphQLClient } from "graphql-request"
 import { getStarHistory, getStarsEarnedPerDay } from "."
+import { getSdk } from "./src/generated/req"
 
-const cumulativeStarCounts = await getStarHistory(
-	"CrossCopy",
-	"tauri-plugin-clipboard",
-	Bun.env.GITHUB_TOKEN!,
-	{
-		since: new Date("2024-08-01"),
-		baseStars: 100
+// const cumulativeStarCounts = await getStarHistory(
+// 	"CrossCopy",
+// 	"tauri-plugin-clipboard",
+// 	Bun.env.GITHUB_TOKEN!
+// )
+
+// console.log(cumulativeStarCounts.length)
+
+const client = new GraphQLClient("https://api.github.com/graphql", {
+	headers: {
+		authorization: `Bearer ${Bun.env.GITHUB_TOKEN!}`,
+		"User-Agent": "github-graphql package"
 	}
-)
-
-console.log(cumulativeStarCounts)
-
-const x = await getStarsEarnedPerDay(
-	"CrossCopy",
-	"tauri-plugin-clipboard",
-	Bun.env.GITHUB_TOKEN!,
-	new Date("2024-08-01")
-)
-console.log(x)
+})
+const sdk = getSdk(client)
+const latestReleases = await sdk.LatestReleases({
+	owner: "kunkunsh",
+	name: "kunkun"
+})
+console.log(latestReleases)

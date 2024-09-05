@@ -1,0 +1,26 @@
+query LatestReleases($owner: String!, $name: String!) {
+	repository(owner: $owner, name: $name) {
+		releases(first: 100, orderBy: { field: CREATED_AT, direction: DESC }) {
+			nodes {
+				name
+				publishedAt
+				tagName
+				createdAt
+				tag {
+					name
+					prefix
+				}
+				isDraft
+				isLatest
+				isPrerelease
+			}
+			pageInfo {
+				endCursor
+				hasNextPage
+				hasPreviousPage
+				startCursor
+			}
+			totalCount
+		}
+	}
+}

@@ -26,6 +26,7 @@ export async function getStarsEarnedPerDay(
 		}
 	})
 	const sdk = getSdk(client)
+	
 	let hasPreviousPage = true
 	let startCursor: string | null = null
 	let allDates: Date[] = []
