@@ -11,6 +11,10 @@ query StarHistory(
         stargazers(first: $first, after: $after, last: $last, before: $before) {
             edges {
                 starredAt
+                node {
+                    name
+                    login
+                }
             }
             totalCount
             pageInfo {

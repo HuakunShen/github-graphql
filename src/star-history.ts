@@ -4,6 +4,38 @@
 import { GraphQLClient } from "graphql-request"
 import { getSdk } from "./generated/req"
 
+export async function getAllStargazers(owner: string, name: string, githubToken: string) {
+	const client = new GraphQLClient("https://api.github.com/graphql", {
+		headers: {
+			authorization: `Bearer ${githubToken}`,
+			"User-Agent": "github-graphql package"
+		}
+	})
+	const sdk = getSdk(client)
+
+	let hasPreviousPage = true
+	let startCursor: string | null = null
+	let allStargazers: { login: string; starredAt: string }[] = []
+	while (hasPreviousPage) {
+		const rawData = await sdk.StarHistory({
+			owner,
+			name,
+			last: 100,
+			before: startCursor
+		})
+		const pageInfo = rawData.data.repository?.stargazers.pageInfo
+		startCursor = pageInfo?.startCursor ?? null
+		hasPreviousPage = pageInfo?.hasPreviousPage ?? false
+		const stargazers =
+			rawData.data.repository?.stargazers.edges?.map((edge) => ({
+				login: edge?.node?.login,
+				starredAt: edge?.starredAt
+			})) ?? []
+		allStargazers.push(...(stargazers.filter((x) => x.login && x.starredAt) as { login: string; starredAt: string }[]))
+	}
+	return allStargazers
+}
+
 /**
  * Get number of stars earned per day for a GitHub repository, since a given date.
  * If `since` is null, it retrieves the entire star history.
@@ -26,7 +58,7 @@ export async function getStarsEarnedPerDay(
 		}
 	})
 	const sdk = getSdk(client)
-	
+
 	let hasPreviousPage = true
 	let startCursor: string | null = null
 	let allDates: Date[] = []
