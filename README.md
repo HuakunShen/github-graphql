@@ -65,9 +65,6 @@ There are two flavors of this API. `graphql-request` and `@apollo/client`.
 
 You can find sample code for both in the tests.
 
-<details>
-<summary>Click to see sample code</summary>
-
 ### `graphql-request`
 
 Exported under `/req` subpackage.
@@ -118,8 +115,6 @@ const result = await client.query({
 })
 const stargazerCount = result.data.repository?.stargazerCount
 ```
-
-</details>
 
 ## Development
 
