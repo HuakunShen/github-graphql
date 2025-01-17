@@ -4,7 +4,12 @@
 import { GraphQLClient } from "graphql-request"
 import { getSdk } from "./generated/req"
 
-export async function getAllStargazers(owner: string, name: string, githubToken: string) {
+export async function getAllStargazers(
+	owner: string,
+	name: string,
+	githubToken: string,
+	since: Date | null = null
+) {
 	const client = new GraphQLClient("https://api.github.com/graphql", {
 		headers: {
 			authorization: `Bearer ${githubToken}`,
@@ -31,7 +36,16 @@ export async function getAllStargazers(owner: string, name: string, githubToken:
 				login: edge?.node?.login,
 				starredAt: edge?.starredAt
 			})) ?? []
-		allStargazers.push(...(stargazers.filter((x) => x.login && x.starredAt) as { login: string; starredAt: string }[]))
+		allStargazers.push(
+			...(stargazers.filter((x) => x.login && x.starredAt) as {
+				login: string
+				starredAt: string
+			}[])
+		)
+		if (since) {
+			allStargazers = allStargazers.filter((x) => new Date(x.starredAt) >= since)
+			break
+		}
 	}
 	return allStargazers
 }

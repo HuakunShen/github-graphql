@@ -1,5 +1,5 @@
 import { expect, test, describe } from "bun:test"
-import { getStarHistory, getStarsEarnedPerDay } from "../src/star-history"
+import { getAllStargazers, getStarHistory, getStarsEarnedPerDay } from "../src/star-history"
 
 describe("Star History", () => {
 	test("Star Earned Per Day", async () => {
@@ -27,5 +27,15 @@ describe("Star History", () => {
 		expect(cumulativeStarCounts[0].count).toBe(1002)
 		expect(cumulativeStarCounts[1].count).toBe(1003)
 		expect(cumulativeStarCounts[2].count).toBe(1004)
+	})
+
+	test("All Stargazers", async () => {
+		const since = new Date("2025-01-01")
+		const allStargazers = await getAllStargazers(
+			"CrossCopy",
+			"tauri-plugin-clipboard",
+			Bun.env.GITHUB_TOKEN!,
+			since
+		)
 	})
 })
