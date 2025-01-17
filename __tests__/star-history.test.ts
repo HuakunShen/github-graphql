@@ -30,12 +30,19 @@ describe("Star History", () => {
 	})
 
 	test("All Stargazers", async () => {
-		const since = new Date("2025-01-01")
+		const since = new Date("2025-01-17T04:20:44Z")
+		
 		const allStargazers = await getAllStargazers(
-			"CrossCopy",
-			"tauri-plugin-clipboard",
+			"kunkunsh",
+			"kunkun",
 			Bun.env.GITHUB_TOKEN!,
-			since
+			{
+				after: since,
+				inclusive: false
+			}
 		)
+		console.log(allStargazers)
+		console.log(since);
+		console.log(allStargazers.length)
 	})
 })

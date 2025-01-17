@@ -8,8 +8,13 @@ export async function getAllStargazers(
 	owner: string,
 	name: string,
 	githubToken: string,
-	since: Date | null = null
+	options?: {
+		after?: Date | null
+		inclusive?: boolean
+	}
 ) {
+	const after = options?.after ?? null
+	const inclusive = options?.inclusive ?? false
 	const client = new GraphQLClient("https://api.github.com/graphql", {
 		headers: {
 			authorization: `Bearer ${githubToken}`,
@@ -42,9 +47,14 @@ export async function getAllStargazers(
 				starredAt: string
 			}[])
 		)
-		if (since) {
-			allStargazers = allStargazers.filter((x) => new Date(x.starredAt) >= since)
-			break
+		if (after && stargazers.length > 0) {
+			const lastStarredAt = new Date(stargazers[0].starredAt)
+			if (lastStarredAt < after) {
+				allStargazers = allStargazers.filter((x) =>
+					inclusive ? new Date(x.starredAt) >= after : new Date(x.starredAt) > after
+				)
+				break
+			}
 		}
 	}
 	return allStargazers
