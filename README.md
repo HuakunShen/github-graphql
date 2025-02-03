@@ -1,8 +1,8 @@
 # github-graphql
 
 [![wakatime](https://wakatime.com/badge/user/94be0fbf-cb9d-411d-8526-d0c4a4e82e1a/project/4c1152fd-6dae-4734-8ee7-5b2a2a98ec71.svg)](https://wakatime.com/badge/user/94be0fbf-cb9d-411d-8526-d0c4a4e82e1a/project/4c1152fd-6dae-4734-8ee7-5b2a2a98ec71)
-![JSR Version](https://jsr.io/badges/@hk/github-graphql)
-![NPM Version](https://img.shields.io/npm/v/github-graphql)
+[![JSR](https://jsr.io/badges/@hk/github-graphql)](https://jsr.io/@hk/github-graphql)
+[![NPM Version](https://img.shields.io/npm/v/github-graphql)](https://www.npmjs.com/package/github-graphql)
 [![CI Build & Test](https://github.com/HuakunShen/github-graphql/actions/workflows/ci.yml/badge.svg)](https://github.com/HuakunShen/github-graphql/actions/workflows/ci.yml)
 [![Generate and Deploy Docs](https://github.com/HuakunShen/github-graphql/actions/workflows/docs.yml/badge.svg)](https://github.com/HuakunShen/github-graphql/actions/workflows/docs.yml)
 

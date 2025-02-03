@@ -1,7 +1,9 @@
 {
 	"name": "github-graphql",
 	"type": "module",
-	"version": "0.2.6",
+	"version": "0.2.7",
+	"main": "./index.ts",
+	"types": "./index.ts",
 	"exports": {
 		".": "./index.ts",
 		"./gql": "./src/generated/gql/index.ts",

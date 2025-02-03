@@ -31,6 +31,14 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org/
-      - run: npm publish --provenance --access public
+      - name: Check if version is already published
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          npm view <package-name>@$PACKAGE_VERSION
+        continue-on-error: true
+        id: check_version
+      - name: Publish
+        if: steps.check_version.outcome != 'success'
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
