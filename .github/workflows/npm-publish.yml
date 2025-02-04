@@ -40,7 +40,7 @@ jobs:
       - name: Check if version is already published
         run: |
           PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          npm view <package-name>@$PACKAGE_VERSION
+          npm view github-graphql@$PACKAGE_VERSION
         continue-on-error: true
         id: check_version
       - name: Publish
