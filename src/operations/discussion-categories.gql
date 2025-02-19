@@ -1,0 +1,17 @@
+query DiscussionCategories($owner: String!, $repo: String!) {
+    repository(owner: $owner, name: $repo) {
+        discussionCategories(first: 20) {
+            nodes {
+                createdAt
+                description
+                emoji
+                emojiHTML
+                id
+                isAnswerable
+                name
+                slug
+                updatedAt
+            }
+        }
+    }
+}
