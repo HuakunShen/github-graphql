@@ -16,6 +16,12 @@ query GetAllDiscussionsByCategory(
                 closedAt
                 createdAt
                 id
+                author {
+                    avatarUrl(size: 50)
+                    login
+                    resourcePath
+                    url
+                }
                 lastEditedAt
                 locked
                 number
