@@ -1,0 +1,54 @@
+query UserStarredRepos($username: String!, $after: String, $first: Int = 50) {
+	user(login: $username) {
+		starredRepositories(first: $first, after: $after) {
+			edges {
+				starredAt
+				node {
+					name
+					url
+					stargazerCount
+					owner {
+						login
+					}
+					description
+					descriptionHTML
+					languages(first: 20) {
+						edges {
+							node {
+								name
+								color
+							}
+							size
+						}
+						totalCount
+					}
+					repositoryTopics(first: 50) {
+						nodes {
+							topic {
+								id
+								name
+								stargazerCount
+								viewerHasStarred
+							}
+							url
+						}
+						totalCount
+					}
+					archivedAt
+					contactLinks {
+						about
+						name
+						url
+					}
+					createdAt
+					diskUsage
+					homepageUrl
+				}
+			}
+			pageInfo {
+				endCursor
+				hasNextPage
+			}
+		}
+	}
+}
