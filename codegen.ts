@@ -1,9 +1,23 @@
 import type { CodegenConfig } from "@graphql-codegen/cli"
 
-const GITHUB_TOKEN = Bun.env.GITHUB_TOKEN
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 if (!GITHUB_TOKEN) {
 	throw new Error("GITHUB_TOKEN is not set")
 }
+const documents = process.env.GQL_DOCUMENTS
+const documentsArray = documents
+	? (() => {
+			try {
+				const parsed = JSON.parse(documents)
+				return Array.isArray(parsed) ? parsed : [parsed]
+			} catch {
+				return documents
+					.split(",")
+					.map((doc) => doc.trim())
+					.filter(Boolean)
+			}
+		})()
+	: ["src/operations/**/*.gql"]
 
 const config: CodegenConfig = {
 	overwrite: true,
@@ -16,7 +30,7 @@ const config: CodegenConfig = {
 		}
 	},
 
-	documents: "src/operations/**/*.gql",
+	documents: documentsArray,
 	generates: {
 		"src/generated/gql/": {
 			preset: "client",
