@@ -12,32 +12,30 @@
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"@apollo/client": "^3.11.4",
-		"@changesets/cli": "^2.27.7",
-		"@graphql-codegen/cli": "5.0.2",
-		"@graphql-codegen/client-preset": "4.3.3",
+		"@apollo/client": "^3.13.5",
+		"@changesets/cli": "^2.28.1",
+		"@graphql-codegen/cli": "5.0.5",
+		"@graphql-codegen/client-preset": "4.8.0",
 		"@graphql-codegen/introspection": "4.0.3",
-		"@graphql-codegen/typescript": "4.0.9",
+		"@graphql-codegen/typescript": "4.1.6",
 		"@graphql-codegen/typescript-graphql-request": "^6.2.0",
-		"@graphql-codegen/typescript-operations": "^4.2.3",
-		"@types/bun": "^1.2.2",
-		"@types/plotly.js": "^2.33.3",
+		"@graphql-codegen/typescript-operations": "^4.6.0",
+		"@types/bun": "latest",
+		"@types/plotly.js": "^2.35.4",
 		"graphql-codegen-typescript-common": "0.18.2",
 		"graphql-tag": "^2.12.6",
-		"plotly.js": "^2.34.0",
-		"prettier": "^3.3.3",
-		"react": "^18.3.1",
-		"typescript": "^5.5.4"
+		"plotly.js": "^3.0.1",
+		"prettier": "^3.5.3",
+		"react": "^19.1.0"
 	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
 	},
 	"dependencies": {
 		"@graphql-typed-document-node/core": "^3.2.0",
-		"graphql": "^16.9.0",
-		"graphql-request": "^7.1.0",
-		"jiti": "^1.21.6",
-		"typedoc": "^0.26.5"
+		"graphql": "^16.10.0",
+		"graphql-request": "^7.1.2",
+		"typedoc": "^0.28.1"
 	},
 	"scripts": {
 		"codegen": "graphql-codegen --config codegen.ts",
